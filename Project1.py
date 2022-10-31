@@ -1,7 +1,5 @@
-from string import whitespace
 import numpy as np
 import pandas as pd
-import inputNumber
 import displayMenu
 
 
