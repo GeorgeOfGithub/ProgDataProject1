@@ -10,7 +10,8 @@ def dataLoad(dataname):
     try:
         data = pd.read_csv(dataname,delim_whitespace=True)
         error_amount = scan(data)
-        print("File loaded succesfully with errors in " + str(error_amount) + " lines")
+        print("File loaded succesfully with errors in " + str(error_amount) + " lines.")
+        print("These have been removed. Returning to main menu...")
     except OSError as e:
         print("\n404 FILE NOT FOUND! TRY ANOTHER FILENAME\n")
 
