@@ -47,7 +47,7 @@ def scan(data):
 
 
 def menu():
-    menuItems = np.array(["Enter txt file", "Display First line", "Quit"])
+    menuItems = np.array(["Load data from file", "Display data", "Quit"])
     name = ""
 
     while True:
