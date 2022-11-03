@@ -8,7 +8,7 @@ import dataFilter as dF
 pd.options.mode.chained_assignment = None
 
 def menu():
-    menuItems = np.array(["Load data from file", "Filter data","Display Statistics", "Plot data", "Quit", "Display"])
+    menuItems = np.array(["Load data from file", "Filter data","Display Statistics", "Plot data","Display", "Quit"])
     filename = ""
     data = None
     while True:
@@ -17,48 +17,47 @@ def menu():
         choice = displayMenu.displayMenu(menuItems)
         # Menu item chosen
         # ------------------------------------------------------------------
-        # 1. Enter name
+        # 1. Load data from file
         if choice == 1:
-        # Ask user to input name and save it in variable
             filename = input("Please enter name of file: ")
+            Original_data = dL.dataLoad(filename)
             data = dL.dataLoad(filename)
         # ------------------------------------------------------------------
-        # 2. Display greeting
+        # 2. Filter data
         elif choice == 2:
-        # Is name empty?
             if data is None:
-        # Display error message
                 print("\nError: No file selected!\n")
             else:
-        # Display greeting
-                data = dF.dataFilter(data)
+                data = dF.dataFilter(data,Original_data)
+        # ------------------------------------------------------------------
+        # 3. Display Statistics        
         elif choice == 3:
             if data is None:
                 print("\nError: No file selected!\n")
             else:
                 statistics = input("Please enter the type of statistic wanted: ")
+                print(data)
                 stat = dS.dataStatistics(data,statistics)
                 print(stat)
                 ## load the file again here
-
+        # ------------------------------------------------------------------
+        # 4. Plot data
         elif choice == 4:
             if data is None:
                 print("\nError: No file selected!\n")
             else:
-                dP.dataPlot(data)   
+                dP.dataPlot(Original_data)   
         # ------------------------------------------------------------------
-        # 3. Quit
+        # 5. Display current file after filters   
         elif choice == 5:
-        # End
-            break
-        elif choice == 6:
-        # Is name empty?
             if data is None:
-        # Display error message
                 print("\nError: No file selected!\n")
             else:
-        # Display greeting
                 print(data.to_string(index=False))
-        
+        # ------------------------------------------------------------------
+        # 6. Quit
+        elif choice == 6:
+        # End
+            break        
 
 menu()

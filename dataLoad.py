@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-    # Author: Lucas Buhelt
+# Author: Lucas Buhelt
 
 def dataLoad(dataname):
 

@@ -3,6 +3,7 @@ import statistics
 import displayMenu
 
 def dataStatistics(data,statistic):
+    statistic = statistic.upper()
 #dataStatistics function calculates one of several possible statistics, which
 #are single numbers describing an aspect of the data
 #
@@ -15,23 +16,26 @@ def dataStatistics(data,statistic):
 # Author: Marios Constantinou, s212684@dtu.dk, 2022
     Temp=data.iloc[:,0]
     GrowthRate=data.iloc[:,1]
+    GrowthRate1 = GrowthRate
+    GrowthRate2 = GrowthRate
+    print(GrowthRate)
     Bacteria=data.iloc[:,2]
-    if statistic == "Mean Temperature":
+    if statistic == "MEAN TEMPERATURE":
         result=statistics.mean(Temp)
-    elif statistic == "Mean Growth rate":
+    elif statistic == "MEAN GROWTH RATE":
         result=statistics.mean(GrowthRate)
-    elif statistic == "Std Temperature":
+    elif statistic == "STD TEMPERATURE":
         result=statistics.stdev(Temp)
-    elif statistic == "Std Growth rate":
+    elif statistic == "STD GROWTH RATE":
         result=statistics.stdev(GrowthRate)
-    elif statistic == "Rows":
+    elif statistic == "ROWS":
         result=len(Temp)
-    elif statistic == "Mean Cold Growth rate":
-        GrowthRate[Temp>=20]=0
-        GrowthRate=[i for i in GrowthRate if i != 0]
-        result=statistics.mean(GrowthRate)
-    elif statistic == "Mean Hot Growth rate":
-        GrowthRate[Temp<=50]=0
-        GrowthRate=[i for i in GrowthRate if i != 0]
-        result=statistics.mean(GrowthRate)
+    elif statistic == "MEAN COLD GROWTH RATE":
+        GrowthRate1[Temp>=20]=0
+        GrowthRate1=[i for i in GrowthRate1 if i != 0]
+        result=statistics.mean(GrowthRate1)
+    elif statistic == "MEAN HOT GROWTH RATE":
+        GrowthRate2[Temp<=50]=0
+        GrowthRate2=[i for i in GrowthRate2 if i != 0]
+        result=statistics.mean(GrowthRate2)
     return result
