@@ -32,6 +32,6 @@ def dataStatistics(data,statistic):
         result=statistics.mean(GrowthRate)
     elif statistic == "Mean Hot Growth rate":
         GrowthRate[Temp<=50]=0
-        GrowthRate1=[i for i in GrowthRate if i != 0]
-        result=statistics.mean(GrowthRate1)
+        GrowthRate=[i for i in GrowthRate if i != 0]
+        result=statistics.mean(GrowthRate)
     return result

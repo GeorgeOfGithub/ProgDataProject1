@@ -1,9 +1,9 @@
 import pandas as pd
 import numpy as np
-
+    # Author: Lucas Buhelt
 
 def dataLoad(dataname):
-    # Author: Lucas Buhelt
+
     data = None
     # reads the data with delimiters set as whitespaces
     try:

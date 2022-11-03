@@ -26,7 +26,7 @@ def dataPlot(data):
  #we will keep the last two columns from this dataset to make our first plot
  OurData=data[['Bacteria','Frequency']]  
  OurData = OurData.drop_duplicates(subset=['Bacteria'])
- print(OurData)
+ #print(OurData)
  x=["Salmonella","Bacillus cereus","Listeria", "Brochothrix thermosphacta"]
  index = np.arange(len(x))
  y=frequency
@@ -79,12 +79,12 @@ def dataPlot(data):
  plt.ylabel('Growth Rate', fontsize=10,labelpad=20)
  plt.xlabel('Temperature', fontsize=10,labelpad=20)
  plt.title('Growth rate by temperature', fontsize=16)
- #plt.xlim([10, 60])
- #plt.ylim(ymin=0)
+ plt.xlim([10, 60])
+ plt.ylim(ymin=0)
 
 
  #display plot
- plt.show
+ plt.show()
 
 
 

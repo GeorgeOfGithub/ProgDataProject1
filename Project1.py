@@ -4,10 +4,11 @@ import displayMenu
 import dataStatistics as dS
 import dataLoad as dL
 import dataPlot as dP
-
+import dataFilter as dF
+pd.options.mode.chained_assignment = None
 
 def menu():
-    menuItems = np.array(["Load data from file", "Display data","Display Statistics", "Plot data", "Quit"])
+    menuItems = np.array(["Load data from file", "Filter data","Display Statistics", "Plot data", "Quit", "Display"])
     filename = ""
     data = None
     while True:
@@ -27,21 +28,37 @@ def menu():
         # Is name empty?
             if data is None:
         # Display error message
-                print("Error: empty file")
+                print("\nError: No file selected!\n")
             else:
         # Display greeting
-                print(data.to_string(index=False))
+                data = dF.dataFilter(data)
         elif choice == 3:
-            statistics = input("Please enter the type of statistic wanted: ")
-            stat = dS.dataStatistics(data,statistics)
-            print(stat)
+            if data is None:
+                print("\nError: No file selected!\n")
+            else:
+                statistics = input("Please enter the type of statistic wanted: ")
+                stat = dS.dataStatistics(data,statistics)
+                print(stat)
+                ## load the file again here
 
         elif choice == 4:
-            dP.dataPlot(data)
+            if data is None:
+                print("\nError: No file selected!\n")
+            else:
+                dP.dataPlot(data)   
         # ------------------------------------------------------------------
         # 3. Quit
         elif choice == 5:
         # End
             break
+        elif choice == 6:
+        # Is name empty?
+            if data is None:
+        # Display error message
+                print("\nError: No file selected!\n")
+            else:
+        # Display greeting
+                print(data.to_string(index=False))
+        
 
 menu()
