@@ -9,10 +9,10 @@ def dataLoad(dataname):
     # reads the data with delimiters set as whitespaces
     try:
         data = pd.read_csv(dataname,delim_whitespace=True)
-        error_amount = scan(data)
+        data,error_amount = scan(data)
         print("File loaded succesfully with errors in " + str(error_amount) + " lines.")
         print("These have been removed. Returning to main menu...")
-    except OSError as e:
+    except OSError:
         print("\n404 FILE NOT FOUND! TRY ANOTHER FILENAME\n")
 
 def scan(data):
@@ -37,12 +37,13 @@ def scan(data):
     # because we couldnt get it to work in one function with "and"
     data = data.drop(data[data.iloc[:,0] > 60.0].index)
     data = data.drop(data[data.iloc[:,0] < 10.0].index)
+    
     data = data.drop(data[data.iloc[:,1] < 0.0].index)
     data = data.drop(data[data.iloc[:,2] < 1.0].index)
     data = data.drop(data[data.iloc[:,2] > 4.0].index)
 
     # Returns amount of error lines
-    return(before - len(data))        
+    return(data, before - len(data))        
 
 
 def menu():
@@ -69,7 +70,7 @@ def menu():
                 print("Error: empty file")
             else:
         # Display greeting
-                print(data)
+                print(data.to_string(index=False))
         # ------------------------------------------------------------------
         # 3. Quit
         elif choice == 3:
