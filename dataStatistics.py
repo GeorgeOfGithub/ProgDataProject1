@@ -16,9 +16,8 @@ def dataStatistics(data,statistic):
 # Author: Marios Constantinou, s212684@dtu.dk, 2022
     Temp=data.iloc[:,0]
     GrowthRate=data.iloc[:,1]
-    GrowthRate1 = GrowthRate
-    GrowthRate2 = GrowthRate
-    print(GrowthRate)
+    GrowthRate1 = GrowthRate.copy()
+    GrowthRate2 = GrowthRate.copy()
     Bacteria=data.iloc[:,2]
     if statistic == "MEAN TEMPERATURE":
         result=statistics.mean(Temp)

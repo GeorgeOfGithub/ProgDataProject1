@@ -36,7 +36,6 @@ def menu():
                 print("\nError: No file selected!\n")
             else:
                 statistics = input("Please enter the type of statistic wanted: ")
-                print(data)
                 stat = dS.dataStatistics(data,statistics)
                 print(stat)
                 ## load the file again here
