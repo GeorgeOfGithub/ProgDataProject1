@@ -1,6 +1,11 @@
 import pandas as pd
 import numpy as np
 # Author: Lucas Buhelt
+# This function loads data from a csv or text file
+#
+# Input: file located in same location as python file, with file name extension
+#
+# Output: data, with all erroneous line removed
 
 def dataLoad(dataname):
 
@@ -41,5 +46,5 @@ def scan(data):
     data = data.drop(data[data.iloc[:,2] < 1.0].index)
     data = data.drop(data[data.iloc[:,2] > 4.0].index)
 
-    # Returns amount of error lines
+    # Returns data and amount of error lines
     return(data, before - len(data))        

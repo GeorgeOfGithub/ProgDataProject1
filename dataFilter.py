@@ -15,9 +15,8 @@ def dataFilter(data,Original_data):
         # ------------------------------------------------------------------
         # 1. Filter by bacteria type
         if choice == 1:
-        # Ask user to input name and save it in variable
             print("Types:\n1: Salmonella enterica\n2: Bacillus cereus\n3: Listeria\n4: Brochothrix thermosphacta")
-            filtertype = input("Please enter type of bacteria: ")
+            filtertype = input("Please enter type of bacteria as number: ")
             new_data = None
             new_data = data[data.iloc[:,2]==int(filtertype)]
             return new_data

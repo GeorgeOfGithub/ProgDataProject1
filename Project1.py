@@ -8,7 +8,7 @@ import dataFilter as dF
 pd.options.mode.chained_assignment = None
 
 def menu():
-    menuItems = np.array(["Load data from file", "Filter data","Display Statistics", "Plot data","Display", "Quit"])
+    menuItems = np.array(["Load data from file", "Filter data","Display Statistics", "Plot data","Display data as table", "Quit"])
     filename = ""
     data = None
     while True:
@@ -38,7 +38,6 @@ def menu():
                 statistics = input("Please enter the type of statistic wanted: ")
                 stat = dS.dataStatistics(data,statistics)
                 print(stat)
-                ## load the file again here
         # ------------------------------------------------------------------
         # 4. Plot data
         elif choice == 4:
