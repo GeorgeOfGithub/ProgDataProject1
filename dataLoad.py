@@ -12,7 +12,8 @@ def dataLoad(dataname):
     data = None
     # reads the data with delimiters set as whitespaces
     try:
-        data = pd.read_csv(dataname,delim_whitespace=True)
+        colnames=['Temperature', 'Growth rate', 'Bacteria'] 
+        data = pd.read_csv(dataname,delim_whitespace=True,names=colnames,header=None)
         data,error_amount = scan(data)
         print("File loaded succesfully with errors in " + str(error_amount) + " lines.")
         print("These have been removed. Returning to main menu...")

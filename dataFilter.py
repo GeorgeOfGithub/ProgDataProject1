@@ -11,6 +11,7 @@ def dataFilter(data,Original_data):
         # Display menu options and ask user to choose a menu item
         print("Filtering")
         choice = displayMenu.displayMenu(menuItems)
+        #data.columns = ["Temp","Growth","Type"]
         # Menu item chosen
         # ------------------------------------------------------------------
         # 1. Filter by bacteria type
@@ -35,4 +36,4 @@ def dataFilter(data,Original_data):
         # ------------------------------------------------------------------
         # 4. Go Back      
         elif choice == 4:
-            break
+            return data

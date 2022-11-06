@@ -19,8 +19,9 @@ def menu():
         # ------------------------------------------------------------------
         # 1. Load data from file
         if choice == 1:
+            
             filename = input("Please enter name of file: ")
-            Original_data = dL.dataLoad(filename)
+            Original_data = dL.dataLoad(filename).copy()
             data = dL.dataLoad(filename)
         # ------------------------------------------------------------------
         # 2. Filter data
